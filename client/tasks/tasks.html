@@ -1,0 +1,58 @@
+<template name="tasks">
+	{{#jkafModal id="insert_task" title="Insert" class="menu_button" template="insert_task" collection="Task"}} insert {{/jkafModal}}
+	<div id="viewer">
+		{{> view_list table=TabularTables.Tasks}}
+	</div>
+	<div class="modal_image_div">{{> modal_image}}</div>
+</template>
+
+
+<template name="insert_task">
+	{{#insert_form id="insert_task" collection="Task"}}
+	{{> insert_update_task_content}}
+	{{/insert_form}}
+</template>
+
+
+<template name="update_task">
+	{{#update_form id="update_task" collection="Task" doc=this}}
+	{{> insert_update_task_content}}
+	{{/update_form}}
+</template>
+
+
+<template name="insert_update_task_content">
+	{{> afQuickField name='taskListId'}}
+	{{> afQuickField name='title'}}
+
+	<ul class="nav nav-tabs">
+		<li><a href="#tab1" data-toggle="tab">事務手続</a></li>
+		<li><a href="#tab2" data-toggle="tab">住所管理</a></li>
+		<li><a href="#tab3" data-toggle="tab">補足</a></li>
+	</ul>
+
+	<div id="myTabContent" class="tab-content" style="max-height: 500px; overflow-y: auto; display: none;">
+		<div class="tab-pane fade in active" id="tab1">
+			{{> afQuickField name='task'}}
+			{{> afQuickField name='snapshot'}}
+		</div>
+		<div class="tab-pane fade in active" id="tab2">
+			{{> afQuickField name='person'}}
+		</div>
+		<div class="tab-pane fade in active" id="tab3">
+			{{> afQuickField name='deadline'}}
+			{{> afQuickField name='term'}}
+			{{> afQuickField name='entday'}}
+			{{> afQuickField name='repetitions'}}
+			{{> afQuickField name='priority'}}
+			{{> afQuickField name='location'}}
+		</div>
+	</div>
+</template>
+
+
+<template name="operation_task">
+	{{#jkafModal id="update_task" title="Update" class="normal" template="update_task" collection="Task" doc=this._id}} 修正 {{/jkafModal}}
+	 / 
+	{{#afModal class="normal" collection="Task" fields="title" id="remove_task" operation="remove" doc=this._id buttonContent="Remove Task" title="Remove Task" buttonClasses="btn-primary"}} 削除 {{/afModal}}
+</template>

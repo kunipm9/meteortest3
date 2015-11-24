@@ -1,0 +1,26 @@
+<head>
+	<title>task-app</title>
+</head>
+
+<body>
+</body>
+
+
+<template name="root">
+	{{> navbar}}
+	{{> breadcrumb}}
+	<div class="container">{{> yield}}</div>
+	<div id="modal">{{> autoformModals}}</div>
+	{{> jkautoformModals}}
+</template>
+
+
+<template name="navbar">
+	{{procMonthString}}
+	<a href="#" class="logout btn btn-default" style="margin-right: 0px;">logout</a>
+</template>
+
+
+<template name="loading">
+	{{>spinner}}
+</template>

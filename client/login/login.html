@@ -1,0 +1,83 @@
+<template name="loginLayout">
+	{{> loginNavbar}}
+	<div class="container">{{> yield}}</div>
+</template>
+
+
+<template name="loginNavbar">
+</template>
+
+
+<template name="login">
+<style type="text/css" media="all">
+* {
+    -webkit-box-sizing: initial;
+    -moz-box-sizing: initial;
+    box-sizing: initial;
+}
+input:focus {
+    background-color: #1e4f8a;
+}
+#xfgzsd {
+	width:333px;
+	height: 352px;
+	padding: 58px 76px 0 76px;
+	color: #ebebeb;
+	font: 12px Arial, Helvetica, sans-serif;
+	background: url(/login/login-box-backg.png) no-repeat left top;
+}
+#xfgzsd img {
+	border:none;
+}
+#xfgzsd h2 {
+	padding:0;
+	margin:0;
+	color: #ebebeb;
+	font: bold 44px "Calibri", Arial;
+}
+#yzabzac {
+	float: left;
+	display:inline;
+	width:80px;
+	text-align: right;
+	padding: 14px 10px 0 0;
+	margin:0 0 7px 0;
+}
+#xghiz2s {
+	float: left;
+	display:inline;
+	width:230px;
+	margin:0;
+	margin:0 0 7px 0;
+}
+.xfgahi  {
+	width: 205px;
+	padding: 10px 4px 6px 3px;
+	border: 1px solid #0d2c52;
+	background-color:#1e4f8a;
+	font-size: 16px;
+	color: #ebebeb;
+}
+</style>
+
+	<div style="padding: 30px 0 0 250px;">
+		<div id="xfgzsd">
+			<H2>Login</H2>
+			<br />
+			<br />
+			<form id="xyzxyz0" action="action">
+			<div id="yzabzac" style="margin-top:20px;">User ID:</div><div id="xghiz2s" style="margin-top:20px;">
+			<input id="xyzxyz" class="xfgahi" title="Username" size="30" maxlength="128" />
+			</div>
+			<div id="yzabzac">Password:</div><div id="xghiz2s">
+			<input id="xyzxyz2" type="password" class="xfgahi" title="Password" size="30" maxlength="128" />
+			</div>
+			<br />
+			<br />
+			<br />
+			<input type="image" src="/login/login-btn.png" width="103" height="42" style="margin-left:90px;" alt="Submit">
+<p id="form-messages"></p>
+			</form>
+		</div>
+	</div>
+</template>

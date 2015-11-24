@@ -1,0 +1,168 @@
+<template name="afObjectField_struct_nolabel">
+  <div class="form-group {{#if afFieldIsInvalid name=this.name}}has-error{{/if}}">
+    <label {{afFieldLabelAtts}}>{{afFieldLabelText name=this.name}}</label>
+    <div class="{{rightColumnClass}}">
+        <div class="{{bodyClass}}">
+          {{> afQuickFields quickFieldsAtts}}
+        </div>
+    </div>
+  </div>
+</template>
+
+
+<template name="afObjectField_fieldset">
+	{{#with afFieldLabelText name=this.name}}
+	<legend class="af-fieldGroup-heading">{{this}}</legend>
+	{{/with}}
+	{{> afQuickFields quickFieldsAtts template="bootstrap3-horizontal"}}
+</template>
+
+<template name="afObjectField_fieldset-sub">
+	{{#with afFieldLabelText name=this.name}}
+	<legend class="af-fieldGroup-heading af-fieldGroup-heading-sub"><u>{{this}}</u></legend>
+	{{/with}}
+	{{> afQuickFields quickFieldsAtts template="bootstrap3-horizontal"}}
+</template>
+
+<template name="afObjectField_fieldset-sub2">
+	{{#with afFieldLabelText name=this.name}}
+	<div class="form-group">
+	<label class="col-sm-12 control-label">{{this}}</label>
+	</div>
+	{{/with}}
+	{{> afQuickFields quickFieldsAtts template="bootstrap3-horizontal"}}
+</template>
+
+
+<template name="afArrayField_arrayfield">
+	<div class="form-group{{#if afFieldIsInvalid name=this.atts.name}} has-error{{/if}}">
+		<label {{afFieldLabelAtts}}>{{afFieldLabelText name=this.atts.name}}</label>
+		<div class="{{rightColumnClass}}">
+			<div class="panel panel-default autoform-padding-fix autoform-arrayfield">
+				{{#if afFieldIsInvalid name=this.atts.name}}
+				<div class="panel-body has-error">
+					<span class="help-block">{{{afFieldMessage name=this.atts.name}}}</span>
+				</div>
+				{{/if}}
+				<ul class="list-group">
+					{{#if fieldLabels}}
+					<li class="list-group-item">
+						<div>
+							<div class="autoform-remove-item-wrap">
+								<div class="autoform-array-handleicon">&nbsp;</div>
+							</div>
+							{{fieldLabels}}
+						</div>
+					</li>
+					{{else}}
+						<div style="height: 8px;"></div>
+					{{/if}}
+					{{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+					<li class="list-group-item autoform-array-item">
+						<div>
+							<div class="autoform-remove-item-wrap">
+								{{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
+								<div class="autoform-array-handleicon">
+									<a href="#" class="autoform-remove-item-confirm">
+										<span class="fa fa-minus-square"></span>
+									</a>
+									<span class="autoform-remove-item"></span>
+									<span class="fa fa-unsorted"></span>
+								</div>
+								{{/if}}
+							</div>
+							<div class="autoform-array-item-body">
+								{{> afQuickField name=this.name label=false options=afOptionsFromSchema template="bootstrap3-horizontal"}}
+							</div>
+						</div>
+					</li>
+					{{/afEachArrayItem}}
+					{{#if afArrayFieldHasLessThanMaximum name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+					<li class="list-group-item">
+						<div class="autoform-array-handleicon">
+							<a href="#" class="autoform-add-item" data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}" data-autoform-maxCount="{{this.atts.maxCount}}"><span class="fa fa-plus-square"></span></a>
+						</div>
+					</li>
+					{{/if}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="render_image">
+	<a href="javascript:;"><img class="grid_img" src={{this.src}}></a>
+</template>
+
+
+<template name="modal_image">
+	<div class="modal fade modal_image">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<img class="modal_img" src={{$.Session.get "image_src"}}>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="view_list">
+	<div class="table-responsive">
+		{{> tabular table=table selector=selector class="table table-striped table-bordered table-hover table-condensed"}}
+	</div>
+</template>
+
+
+<template name="insert_form">
+	{{#autoForm id=id collection=collection type="insert" template="bootstrap3-horizontal"}} {{> UI.contentBlock}}
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-primary">確定</button>
+		<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">キャンセル</span></button>
+	</div>
+	{{/autoForm}}
+</template>
+
+
+<template name="insert_form_schema">
+	{{#autoForm id=id schema=schema type=type meteormethod=meteormethod template="bootstrap3-horizontal"}} {{> UI.contentBlock}}
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-primary">確定</button>
+		<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">キャンセル</span></button>
+	</div>
+	{{/autoForm}}
+</template>
+
+
+<template name="update_form">
+	{{#autoForm id=id collection=collection doc=doc type="update" template="bootstrap3-horizontal"}} {{> UI.contentBlock}}
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-primary">確定</button>
+		<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">キャンセル</span></button>
+	</div>
+	{{/autoForm}}
+</template>
+
+
+<template name="update_form_schema">
+	{{#autoForm id=id schema=schema type=type meteormethod=meteormethod doc=doc template="bootstrap3-horizontal"}} {{> UI.contentBlock}}
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-primary">確定</button>
+		<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">キャンセル</span></button>
+	</div>
+	{{/autoForm}}
+</template>
+
+
+<template name="readonly_form">
+	{{#autoForm id=id collection=collection doc=doc type="disabled" template="bootstrap3-horizontal"}} {{> UI.contentBlock}}
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">閉じる</span></button>
+	</div>
+	{{/autoForm}}
+</template>

@@ -1,0 +1,16 @@
+<template name="afSelect2Add">
+  <select {{this.atts}}>
+    {{#each this.items}}
+      {{#if this.optgroup}}
+        <optgroup label="{{this.optgroup}}">
+        {{#each this.items}}
+        <option {{afSelectOptionAtts}}>{{this.label}}</option>
+        {{/each}}
+        </optgroup>
+      {{else}}
+        <option {{afSelectOptionAtts}}>{{this.label}}</option>
+      {{/if}}
+    {{/each}}
+  </select>
+  <a href="{{pathFor path}}" target="_subentry" class="btn btn-default" style="margin-right: 0px;">{{_ "label_button_add"}}</a>
+</template>

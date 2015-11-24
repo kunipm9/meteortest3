@@ -1,0 +1,44 @@
+<template name="_loginButtonsAdditionalLoggedInDropdownActions">
+	{{#afModal class="btn btn-default btn-block" collection="Meteor.users" fields="profile.firstName,profile.lastName" id="login-buttons-edit-profile" operation="update" buttonContent="Update Profile" title="Update your profile" buttonClasses="btn-primary" doc=currentUser._id}}Edit profile{{/afModal}}
+</template>
+
+
+<template name="users">
+	{{#jkafModal id="insert_user" title="Insert" class="menu_button" template="insert_user" collection="Meteor.users"}} insert {{/jkafModal}}
+
+	{{#jkafModal id="insert_user" title="Insert" class="menu_button" template="insert_user" collection="Meteor.users"}} insert {{/jkafModal}}
+
+	<div id="viewer">
+		{{> view_list table=TabularTables.UserList}}
+	</div>
+</template>
+
+
+<template name="insert_user">
+	{{#insert_form_schema id="insert_user" schema="Schemas_User" type="method" meteormethod="AccountsCreateUser"}}
+	{{> insert_update_user_content}}
+	{{/insert_form_schema}}
+</template>
+
+
+<template name="update_user">
+	{{#update_form_schema id="update_user" schema="Schemas_User" type="method-update" meteormethod="AccountsChangeUser" doc=this}}
+	{{> insert_update_user_content}}
+	{{/update_form_schema}}
+</template>
+
+
+<template name="insert_update_user_content">
+	{{> afQuickField name='profile.username'}}
+	{{> afQuickField name='profile.password'}}
+	{{> afQuickField name='profile.email'}}
+	{{> afQuickField name='profile.firstName'}}
+	{{> afQuickField name='profile.lastName'}}
+	{{> afQuickField name='profile.role'}}
+	{{> afQuickField name='createdAt'}}
+</template>
+
+<template name="operation_user">
+	{{#jkafModal id="update_user" title="Update" class="normal" template="update_user" collection="Meteor.users" doc=this._id}} 修正 {{/jkafModal}}
+	{{#afModal class="normal" collection="Meteor.users" fields="profile,roles" operation="remove" doc=this._id buttonContent="Remove User" title="Remove User" buttonClasses="btn-primary" prompt="Are you sure? This will delete all User associated with this user."}} 削除 {{/afModal}}
+</template>

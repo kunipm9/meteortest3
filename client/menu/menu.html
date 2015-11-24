@@ -1,0 +1,30 @@
+<template name="menu">
+	<div class="row">
+		<div class='col-sm-3'>
+			<div class="form-group">
+				<select id="procMonth" class="form-control">
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class='col-sm-3'>
+			<a href="{{pathFor 'menu.tasklist'}}" class='menu_button'>Task List</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class='col-sm-3'>
+			<a href="{{pathFor 'menu.tasks'}}" class='menu_button'>Tasks</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class='col-sm-3'>
+			<a href="{{pathFor 'menu.users'}}" class='menu_button'>Users</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class='col-sm-3'>
+			<a href="#" id="download" class='menu_button'>Download</a>
+		</div>
+	</div>
+</template>
