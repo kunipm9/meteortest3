@@ -75,6 +75,7 @@ console.log(this);
 		} else {
 			zip1 = zip.substr(0, 3);
 			zip2 = zip.substr(3);
+			$('input[name="' + this.name + '"]').val(zip1 + '-' + zip2);
 		}
 		$.getJSON('http://api.thni.net/jzip/X0401/JSONP/'+zip1+'/'+zip2+'.js?jsoncallback=?');
 		return false;

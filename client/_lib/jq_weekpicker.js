@@ -55,49 +55,9 @@ Template.afJqueryWeekpicker.rendered = function () {
 
   $('input#' + data.atts.id).weekpicker();
 
-/***
-  // instanciate datepicker
-  var pikaday = new Pikaday({ field: $input[0], i18n: i18n_pickaday, yearSuffix: i18n_pickaday_yearSuffix, setDefaultDate: true, });
-  this.data.pikaday = pikaday;
-  $('input#' + data.atts.id).val(data.value);
-  pikaday.gotoDate(new Date(data.value));
-
-  // set and reactively update values
-  this.autorun(function () {
-    var data = Template.currentData();
-
-    // set field value
-    if (data.value instanceof Date) {
-      pikaday.setDate(data.value);
-    } else if (typeof data.value === "string") {
-      pikaday.setDate(data.value);
-    }
-
-    // set start date if there's a min in the schema
-    if (data.min instanceof Date) {
-      // datepicker plugin expects local Date object,
-      // so convert UTC Date object to local
-      var startDate = utcToLocal(data.min);
-      pikaday.setMinDate(startDate);
-    }
-
-    // set end date if there's a max in the schema
-    if (data.max instanceof Date) {
-      // datepicker plugin expects local Date object,
-      // so convert UTC Date object to local
-      var endDate = utcToLocal(data.max);
-      pikaday.setMaxDate(startDate);
-    }
-  });
-***/
 };
 
 Template.afJqueryWeekpicker.destroyed = function () {
-//console.log("Template.afJqueryWeekpicker.destroyed");
-//console.log(this.data.pikaday);
-  if (this.data.pikaday) {
-      this.data.pikaday.destroy();
-  }
 };
 
 function utcToLocal(utcDate) {
