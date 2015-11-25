@@ -436,3 +436,12 @@ a.autoform-add-item {
 .autoform-array-label {
 	border-bottom: 1px solid #CCC;
 }
+/*****************************************/
+body {
+  padding-right: 0px !important
+}
+
+.modal-open {
+  overflow-y: auto;
+}
+

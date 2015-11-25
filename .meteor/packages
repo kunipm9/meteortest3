@@ -72,3 +72,4 @@ reactive-var
 dburles:collection-helpers
 classcraft:meteor-wkhtmltopdf
 meteorhacks:ssr
+silvervue:wkwebview
