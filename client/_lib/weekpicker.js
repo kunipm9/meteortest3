@@ -65,6 +65,11 @@ console.log(e.target);
                 .append($nav, $calendar)
                 .insertAfter(this.$el);
 
+            $(selector)
+                .blur(function (e) {
+                    pi.hide();
+                });
+
             this.$el
                 .focus(this.show)
                 .click(this.show)
