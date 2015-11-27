@@ -91,6 +91,7 @@ console.log("shown.bs.tab");
 		var previous_tab = e.relatedTarget // previous tab
 		var target_id = $(e.target).attr('href');
 
+		// googlemap
 		$('div.js-map', $(target_id)).each(function(index) {
 //			console.log("js-map 1");
 //			console.log($(this));
@@ -101,6 +102,7 @@ console.log("shown.bs.tab");
 }
 
 setupModalContent2 = function() {
+	// googlemap
 	$('div.tab-pane.active div.js-map').each(function(index) {
 //		console.log("js-map 2");
 //		console.log($(this));
