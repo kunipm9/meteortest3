@@ -131,16 +131,25 @@ jQuery(document).ready(function ($) {
 
         plugin.init = function() {
             plugin.settings = $.extend(true, {}, defaults, options);
-            $element.click(function () {
+console.log("sticky init");
+console.log("$element");
+console.log($element);
+            $element.click(function (e) {
+                e.preventDefault();
+console.log("sticky click");
                 if (allSleeping()) {
                     return;
                 }
                 createNoteBox($element);
             });
-            $element.bind('show', function () {
+            $element.bind('show', function (e) {
+console.log("sticky show");
+                e.preventDefault();
                 $element.css("visibility", "visible");
             });
-            $element.bind('hide', function () {
+            $element.bind('hide', function (e) {
+console.log("sticky hide");
+                e.preventDefault();
                 $element.css("visibility", "hidden");
             });
         };
@@ -599,7 +608,9 @@ jQuery(document).ready(function ($) {
             // Delete function here!
             var noteBoxDelete = $("<div class='" + deleteCssClass + "'>"
                 + note.settings.deleteLinkText + "</div>");
-            noteBoxDelete.click(function () {
+            noteBoxDelete.click(function (e) {
+console.log("sticky delete");
+                e.preventDefault();
                 if (sleeping(noteBox)) {
                     return;
                 }
@@ -607,6 +618,7 @@ jQuery(document).ready(function ($) {
                 if (deleteNote != false) {
                     $(this).parent().remove();
                 }
+                return false;
             });
 
             // Settings menu
@@ -747,9 +759,13 @@ jQuery(document).ready(function ($) {
     };
 
     $.fn.coaStickyNote = function(options) {
+console.log("$.fn.coaStickyNote ------------------");
+console.log(this);
 
         return this.each(function() {
+console.log("$.fn.coaStickyNote --each------------");
             if (undefined == $(this).data('coaStickyNote')) {
+console.log("$.fn.coaStickyNote --each-unde-------");
                 var plugin = new $.CoaStickyNote(this, options);
                 $(this).data('coaStickyNote', plugin);
             }

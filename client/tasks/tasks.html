@@ -22,6 +22,7 @@
 
 
 <template name="insert_update_task_content">
+	{{> afQuickField name='stickynoteBody'}}
 	{{> afQuickField name='taskListId'}}
 	{{> afQuickField name='title'}}
 
@@ -33,6 +34,7 @@
 
 	<div id="myTabContent" class="tab-content" style="max-height: 500px; overflow-y: auto; display: none;">
 		<div class="tab-pane fade in active" id="tab1">
+			{{> afQuickField name='stickynoteTask'}}
 			{{> afQuickField name='task'}}
 			{{> afQuickField name='snapshot'}}
 		</div>

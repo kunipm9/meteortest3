@@ -20,13 +20,11 @@ Template.afJqueryStickynote.helpers({
 
 Template.afJqueryStickynote.rendered = function () {
 console.log("Template.afJqueryStickynote.rendered");
-console.log("data");
-console.log(data);
 console.log("this");
 console.log(this);
 
     // Advanced demo
-    this.data.stickynote = $('.divStickyNotesContainer', $(this)).coaStickyNote({
+    var stickynote = $('.divStickyNotesContainer', $('#' + this.data.atts.id)).coaStickyNote({
         resizable: true,
         availableThemes: [
             { text: "Yellow", value: "sticky-note-yellow-theme" },
@@ -78,8 +76,12 @@ console.log(this);
         },
     });
 
-    var data = this.data;
-    loadExistingNotes(data);
+    //stickynote.loadExistingNotes(this.data.value);
+
+    this.data.stickynote = stickynote;
+
+console.log("this.data.stickynote");
+console.log(this.data.stickynote);
 };
 
 Template.afJqueryStickynote.destroyed = function () {
