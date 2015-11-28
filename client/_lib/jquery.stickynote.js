@@ -142,15 +142,15 @@ console.log("sticky click");
                 }
                 createNoteBox($element);
             });
-            $element.bind('show', function (e) {
+            $element.bind('st_show', function (e) {
 console.log("sticky show");
-                e.preventDefault();
-                $element.css("visibility", "visible");
+//                e.preventDefault();
+//                $element.css("visibility", "visible");
             });
-            $element.bind('hide', function (e) {
+            $element.bind('st_hide', function (e) {
 console.log("sticky hide");
-                e.preventDefault();
-                $element.css("visibility", "hidden");
+//                e.preventDefault();
+//                $element.css("visibility", "hidden");
             });
         };
 
@@ -768,6 +768,12 @@ console.log("$.fn.coaStickyNote --each------------");
 console.log("$.fn.coaStickyNote --each-unde-------");
                 var plugin = new $.CoaStickyNote(this, options);
                 $(this).data('coaStickyNote', plugin);
+console.log("$.fn.coaStickyNote --each-unde-this------");
+console.log(this);
+console.log("$.fn.coaStickyNote --each-unde-$(this)------");
+console.log($(this));
+console.log("$.fn.coaStickyNote --each-unde-$(this).data()------");
+console.log($(this).data('coaStickyNote'));
             }
         });
     };

@@ -1,15 +1,12 @@
-var afJqueryStickynoteNoteList = [];
+var afJqueryStickynoteNoteList = new Array();
 
 AutoForm.addInputType("jquery-stickynote", {
   template: "afJqueryStickynote",
   valueOut: function () {
 console.log("jquery-stickynote");
-console.log(this.val());
-    if (this.val()) {
-console.log(this.context);
-      return this.context.value;
-    }
-    return null;
+console.log(afJqueryStickynoteNoteList);
+console.log(new Object(afJqueryStickynoteNoteList));
+    return JSON.stringify(afJqueryStickynoteNoteList);
   },
   valueConverters: {
   }
@@ -24,7 +21,7 @@ console.log("this");
 console.log(this);
 
     // Advanced demo
-    var stickynote = $('.divStickyNotesContainer', $('#' + this.data.atts.id)).coaStickyNote({
+    $('.divStickyNotesContainer', $('#' + this.data.atts.id)).coaStickyNote({
         resizable: true,
         availableThemes: [
             { text: "Yellow", value: "sticky-note-yellow-theme" },
@@ -76,7 +73,10 @@ console.log(this);
         },
     });
 
-    //stickynote.loadExistingNotes(this.data.value);
+    console.log("$('.divStickyNotesContainer', $('#' + this.data.atts.id))");
+
+    var stickynote = $('.divStickyNotesContainer', $('#' + this.data.atts.id)).data('coaStickyNote');
+    stickynote.loadExistingNotes(JSON.parse(this.data.value));
 
     this.data.stickynote = stickynote;
 

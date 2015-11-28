@@ -131,11 +131,11 @@ setupStickynote = function(area) {
 			var tab_href = $(elem2).attr('href');
 		});
 		if (tab_href == null) {
-			$(this).trigger('show');
+			$(elem).trigger('st_show');
 		} else if (tab_href == area) {
-			$(this).trigger('show');
+			$(elem).trigger('st_show');
 		} else {
-			$(this).trigger('hide');
+			$(elem).trigger('st_hide');
 		}
 	});
 }
