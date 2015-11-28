@@ -131,11 +131,17 @@ jQuery(document).ready(function ($) {
 
         plugin.init = function() {
             plugin.settings = $.extend(true, {}, defaults, options);
-            $element.dblclick(function () {
+            $element.click(function () {
                 if (allSleeping()) {
                     return;
                 }
                 createNoteBox($element);
+            });
+            $element.bind('show', function () {
+                $element.css("visibility", "visible");
+            });
+            $element.bind('hide', function () {
+                $element.css("visibility", "hidden");
             });
         };
 

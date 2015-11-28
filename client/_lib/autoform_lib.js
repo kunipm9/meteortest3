@@ -92,24 +92,55 @@ console.log("shown.bs.tab");
 		var target_id = $(e.target).attr('href');
 
 		// googlemap
-		$('div.js-map', $(target_id)).each(function(index) {
-//			console.log("js-map 1");
-//			console.log($(this));
-			$(this).trigger('click');
-		});
+		setupGooglemap(target_id);
+
+		// sticky note
+		setupStickynote(target_id);
 	});
 
 }
 
 setupModalContent2 = function() {
 	// googlemap
-	$('div.tab-pane.active div.js-map').each(function(index) {
-//		console.log("js-map 2");
-//		console.log($(this));
+	setupGooglemap2(null);
+}
+
+/////////////////////
+setupGooglemap = function(area) {
+	$('div.js-map', $(area)).each(function(index) {
+		console.log("setupGooglemap js-map 1");
+		console.log($(this));
 		$(this).trigger('click');
 	});
 }
 
+setupGooglemap2 = function(area) {
+	$('div.tab-pane.active div.js-map').each(function(index) {
+		console.log("setupGooglemap2 js-map 2");
+		console.log($(this));
+		$(this).trigger('click');
+	});
+}
+
+setupStickynote = function(area) {
+	$('div.divStickyNotesContainer').each(function(index, elem) {
+		console.log("divStickyNotesContainer 1");
+		console.log($(this));
+		var tab_href = null;
+		$(elem).parents('.nav-tabs a').each(function(index2, elem2) {
+			var tab_href = $(elem2).attr('href');
+		});
+		if (tab_href == null) {
+			$(this).trigger('show');
+		} else if (tab_href == area) {
+			$(this).trigger('show');
+		} else {
+			$(this).trigger('hide');
+		}
+	});
+}
+
+/////////////////////
 setupModal = function(templateName) {
 	if (templateName == undefined) return;
 

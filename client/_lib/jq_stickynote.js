@@ -20,10 +20,13 @@ Template.afJqueryStickynote.helpers({
 
 Template.afJqueryStickynote.rendered = function () {
 console.log("Template.afJqueryStickynote.rendered");
+console.log("data");
 console.log(data);
+console.log("this");
+console.log(this);
 
     // Advanced demo
-    $('#divStickyNotesContainer').coaStickyNote({
+    this.data.stickynote = $('.divStickyNotesContainer', $(this)).coaStickyNote({
         resizable: true,
         availableThemes: [
             { text: "Yellow", value: "sticky-note-yellow-theme" },
@@ -80,4 +83,5 @@ console.log(data);
 };
 
 Template.afJqueryStickynote.destroyed = function () {
+    this.data.stickynote.destroy();
 };
