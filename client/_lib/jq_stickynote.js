@@ -5,7 +5,6 @@ AutoForm.addInputType("jquery-stickynote", {
   valueOut: function () {
 console.log("jquery-stickynote");
 console.log(afJqueryStickynoteNoteList);
-console.log(new Object(afJqueryStickynoteNoteList));
     return JSON.stringify(afJqueryStickynoteNoteList);
   },
   valueConverters: {
@@ -52,6 +51,11 @@ console.log(this);
             // Else let's save the updated note text on server, to preserve changes.
         },
         onNoteBoxDelete: function (note) {
+            for(i = 0; i < noteList.length; i++){
+                if(noteList[i] == note){
+                    noteList.splice(i,1);
+                }
+            }
             // Return false, if want to abort the note delete request .
             // Else let's delete the note details from server, to preserve changes.
         },
@@ -73,17 +77,21 @@ console.log(this);
         },
     });
 
-    console.log("$('.divStickyNotesContainer', $('#' + this.data.atts.id))");
+console.log("$('.divStickyNotesContainer', $('#' + this.data.atts.id))");
+console.log(this.data.value);
+    
+console.log(JSON.parse(this.data.value));
 
     var stickynote = $('.divStickyNotesContainer', $('#' + this.data.atts.id)).data('coaStickyNote');
-    stickynote.loadExistingNotes(JSON.parse(this.data.value));
-
+    if (this.data.value != null) {
+        stickynote.loadExistingNotes(JSON.parse(this.data.value));
+    }
     this.data.stickynote = stickynote;
 
-console.log("this.data.stickynote");
-console.log(this.data.stickynote);
 };
 
 Template.afJqueryStickynote.destroyed = function () {
-    this.data.stickynote.destroy();
+    if (this.data.stickynote != null) {
+        this.data.stickynote.destroy();
+    }
 };
