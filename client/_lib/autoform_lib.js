@@ -108,24 +108,24 @@ setupModalContent2 = function() {
 /////////////////////
 setupGooglemap = function(area) {
 	$('div.js-map', $(area)).each(function(index) {
-		console.log("setupGooglemap js-map 1");
-		console.log($(this));
+//console.log("setupGooglemap js-map 1");
+//console.log($(this));
 		$(this).trigger('click');
 	});
 }
 
 setupGooglemap2 = function(area) {
 	$('div.tab-pane.active div.js-map').each(function(index) {
-		console.log("setupGooglemap2 js-map 2");
-		console.log($(this));
+//console.log("setupGooglemap2 js-map 2");
+//console.log($(this));
 		$(this).trigger('click');
 	});
 }
 
 setupStickynote = function(area) {
 	$('div.divStickyNotesContainer').each(function(index, elem) {
-		console.log("divStickyNotesContainer 1");
-		console.log($(this));
+//console.log("divStickyNotesContainer 1");
+//console.log($(this));
 		var tab_href = null;
 		$(elem).parents('.nav-tabs a').each(function(index2, elem2) {
 			var tab_href = $(elem2).attr('href');
