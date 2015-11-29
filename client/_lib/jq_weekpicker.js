@@ -53,8 +53,8 @@ Template.afJqueryWeekpicker.rendered = function () {
 //console.log(data);
 //console.log($input);
 
+  $('input#' + data.atts.id).val(data.value);
   $('input#' + data.atts.id).weekpicker();
-
 };
 
 Template.afJqueryWeekpicker.destroyed = function () {
