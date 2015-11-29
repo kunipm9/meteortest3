@@ -1,3 +1,5 @@
 {
-  "label_button_add": "追加"
+  "label_button_add": "追加",
+  "label_button_confirm": "承認",
+  "label_button_confirm_clear": "CL"
 }

@@ -1,9 +1,9 @@
 AutoForm.addInputType("postalcode", {
   template: "afPostalcode",
   valueOut: function () {
-console.log("valueOut");
-console.log(this);
-console.log(this.context.value);
+//console.log("valueOut");
+//console.log(this);
+//console.log(this.context.value);
     return this.context.value;
   },
   valueConverters: {

@@ -16,6 +16,11 @@ _libSetDefault = function() {
 _libSetDefault();
 
 Template.menu.rendered = function() {
+//var user = Meteor.user()
+//console.log(user);
+//var user2 = Meteor.users.findOne({_id: user._id});
+//console.log(user2);
+
 	var procMonth = Session.get('procMonth');
 	var procMonthString = Session.get('procMonthString');
 console.log(procMonth);
