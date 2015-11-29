@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
             // Set default note dimension, which will be set when a new note will be created!
             // width: width of the note div
             // height: Height of the note div
-            noteDimension: { width: "235px", height: "200px" },
+            noteDimension: { width: "200px", height: "64px" },
             
             // Set default note box text, which will be set when a new note will be created!
             noteText: "New note box!",
@@ -131,24 +131,24 @@ jQuery(document).ready(function ($) {
 
         plugin.init = function() {
             plugin.settings = $.extend(true, {}, defaults, options);
-console.log("sticky init");
-console.log("$element");
-console.log($element);
+//console.log("sticky init");
+//console.log("$element");
+//console.log($element);
             $element.click(function (e) {
                 e.preventDefault();
-console.log("sticky click");
+//console.log("sticky click");
                 if (allSleeping()) {
                     return;
                 }
                 createNoteBox($element);
             });
             $element.bind('st_show', function (e) {
-console.log("sticky show");
+//console.log("sticky show");
 //                e.preventDefault();
 //                $element.css("visibility", "visible");
             });
             $element.bind('st_hide', function (e) {
-console.log("sticky hide");
+//console.log("sticky hide");
 //                e.preventDefault();
 //                $element.css("visibility", "hidden");
             });
@@ -454,6 +454,8 @@ console.log("sticky hide");
                     index: nextIndexForNoteBox(),
                 };
                 note.id = note.index;
+                note.settings.notePosition.top = 50 + Math.random() * 400;
+                note.settings.notePosition.left = 50 + Math.random() * 600;
             } else {
                 note.settings = $.extend(true, {}, plugin.settings);
                 note.settings = $.extend(true, note.settings, existingNote.settings);
@@ -609,7 +611,7 @@ console.log("sticky hide");
             var noteBoxDelete = $("<div class='" + deleteCssClass + "'>"
                 + note.settings.deleteLinkText + "</div>");
             noteBoxDelete.click(function (e) {
-console.log("sticky delete");
+//console.log("sticky delete");
                 e.preventDefault();
                 if (sleeping(noteBox)) {
                     return;
@@ -759,21 +761,21 @@ console.log("sticky delete");
     };
 
     $.fn.coaStickyNote = function(options) {
-console.log("$.fn.coaStickyNote ------------------");
-console.log(this);
+//console.log("$.fn.coaStickyNote ------------------");
+//console.log(this);
 
         return this.each(function() {
-console.log("$.fn.coaStickyNote --each------------");
+//console.log("$.fn.coaStickyNote --each------------");
             if (undefined == $(this).data('coaStickyNote')) {
-console.log("$.fn.coaStickyNote --each-unde-------");
+//console.log("$.fn.coaStickyNote --each-unde-------");
                 var plugin = new $.CoaStickyNote(this, options);
                 $(this).data('coaStickyNote', plugin);
-console.log("$.fn.coaStickyNote --each-unde-this------");
-console.log(this);
-console.log("$.fn.coaStickyNote --each-unde-$(this)------");
-console.log($(this));
-console.log("$.fn.coaStickyNote --each-unde-$(this).data()------");
-console.log($(this).data('coaStickyNote'));
+//console.log("$.fn.coaStickyNote --each-unde-this------");
+//console.log(this);
+//console.log("$.fn.coaStickyNote --each-unde-$(this)------");
+//console.log($(this));
+//console.log("$.fn.coaStickyNote --each-unde-$(this).data()------");
+//console.log($(this).data('coaStickyNote'));
             }
         });
     };

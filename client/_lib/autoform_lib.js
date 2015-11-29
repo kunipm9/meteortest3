@@ -24,7 +24,7 @@ setupModalContent = function() {
 //console.log(ui);
 			$('.autoform-array-item', event.target).each(function(index) {
 //console.log("---");
-console.log(this);
+//console.log(this);
 				$('[data-schema-key *= "."]', this).each(function(index2) {
 //console.log(lino);
 //console.log($(this).attr('data-schema-key').split('.'));
@@ -148,7 +148,7 @@ setupModal = function(templateName) {
 	if (Template[templateName].rendered != undefined) {
 		return;
 	}
-	console.log("setup:" + templateName);
+	console.log("Template renderd:" + templateName);
 	Template[templateName].rendered = function() {
 console.log("Template renderd");
 		AutoForm.resetForm(templateName);
@@ -160,7 +160,7 @@ console.log("show.bs.modal");
 			AutoForm.resetForm(form_id);
 			setTimeout(function() {
 				setupModalContent();
-			}, 200);
+			}, 300);
 			setTimeout(function() {
 				setupModalContent2();
 			}, 1000);
@@ -184,6 +184,11 @@ console.log("hide.bs.modal");
 			setupModalContent();
 		}, 300);
 	}
+
+	Template[templateName].destroyed = function() {
+		console.log("Template destroyed:" + templateName);
+	}
+
 	AutoForm.addHooks(templateName, {
 		onError: function(operation, error, template) {
 console.log("onError");
