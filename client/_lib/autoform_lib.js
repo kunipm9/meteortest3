@@ -9,6 +9,7 @@ AutoForm.addHooks(null, {
 });
 
 setupModalContent = function() {
+//console.log("setupModalContent");
 	$('.nav-tabs a:first').tab('show');
 	$('.tab-content').fadeIn(500);
 	$('.textarea_autosize').autosize();
@@ -98,6 +99,8 @@ console.log("shown.bs.tab");
 		setupStickynote(target_id);
 	});
 
+	// googlemap
+	setupGooglemap3();
 }
 
 setupModalContent2 = function() {
@@ -119,6 +122,20 @@ setupGooglemap2 = function(area) {
 //console.log("setupGooglemap2 js-map 2");
 //console.log($(this));
 		$(this).trigger('click');
+	});
+}
+
+setupGooglemap3 = function() {
+	$('div.js-map').each(function(index, elem) {
+//console.log("setupGooglemap3 js-map 1");
+//console.log($(this));
+		var tab_href = null;
+		$(elem).parents('.nav-tabs a').each(function(index2, elem2) {
+			var tab_href = $(elem2).attr('href');
+		});
+		if (tab_href == null) {
+			$(this).trigger('click');
+		}
 	});
 }
 
@@ -144,12 +161,14 @@ setupStickynote = function(area) {
 setupModal = function(templateName) {
 	if (templateName == undefined) return;
 
-
 	if (Template[templateName].rendered != undefined) {
 		return;
 	}
-	console.log("Template renderd:" + templateName);
+
+console.log("Template renderd:" + templateName);
+
 	Template[templateName].rendered = function() {
+
 console.log("Template renderd");
 		AutoForm.resetForm(templateName);
 		$('#jkafModal').off('show.bs.modal');

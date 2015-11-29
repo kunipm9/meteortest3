@@ -98,7 +98,7 @@
 }
 
 .modal-footer {
-	border-top: 1px solid #888;
+	border-top: none;
 }
 
 .modal-dialog {
