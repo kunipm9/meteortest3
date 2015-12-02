@@ -284,6 +284,11 @@ table.dataTable tbody th, table.dataTable tbody td {
 	border-right-style: dotted;
 }
 
+div.dataTables_wrapper div.row {
+	margin-right: 0;
+	margin-left: 0;
+}
+
 /*****************************************/
 .breadcrumb > li + li:before {
 	font-size: 1.0em;
