@@ -148,7 +148,12 @@ initTemplateAndGoogleMaps = function() {
   }
   google.maps.event.addListener(this.map, 'click', (function(_this) {
     return function(e) {
-      return _this.setMarker(_this.map, e.latLng);
+      mapEdit = $(_this.firstNode).find('.js-map-edit input').prop('checked');
+      if (mapEdit) {
+        return _this.setMarker(_this.map, e.latLng);
+      } else {
+        return true;
+      }
     };
   })(this));
   this.$('.js-map').closest('form').on('reset', (function(_this) {
@@ -207,7 +212,16 @@ Template.afMap.events({
     if (!navigator.geolocation) {
       return false;
     }
+
     if (t.resized == undefined) {
+      mapEdit = $(t.firstNode).find('.js-map-edit input');
+      $(mapEdit).bootstrapToggle({
+        height: 24,
+        width: 90,
+        on: '編集ON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+        off: '編集OFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+      });
+
 //console.log("google.maps resize");
       google.maps.event.trigger(t.map, 'resize');
       t.resized = true;
