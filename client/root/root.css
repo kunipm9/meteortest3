@@ -456,3 +456,11 @@ body {
   overflow-y: auto;
 }
 
+/*****************************************/
+.sticky-note-yellow-theme.each-sticky-note-outer,
+.sticky-note-orange-theme.each-sticky-note-outer,
+.sticky-note-green-theme.each-sticky-note-outer,
+.sticky-note-blue-theme.each-sticky-note-outer,
+.sticky-note-pink-theme.each-sticky-note-outer {
+	border: none;
+}
