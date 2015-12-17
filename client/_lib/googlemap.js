@@ -10,6 +10,7 @@ defaults = {
   searchBox: false,
   autolocate: false,
   zoom: 12,
+  scrollwheel: false,
 };
 
 AutoForm.addInputType('map', {
@@ -100,7 +101,8 @@ initTemplateAndGoogleMaps = function() {
   mapOptions = {
     zoom: 0,
     mapTypeId: google.maps.MapTypeId[this.options.mapType],
-    streetViewControl: false
+    streetViewControl: false,
+    scrollwheel: this.options.scrollwheel,
   };
   if (this.data.atts.googleMap) {
     _.extend(mapOptions, this.data.atts.googleMap);
