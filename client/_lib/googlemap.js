@@ -261,5 +261,16 @@ Template.afMap.events({
     if (e.keyCode === KEY_ENTER) {
       return e.preventDefault();
     }
-  }
+  },
+  'click .js-map-edit': function(e, t) {
+    setTimeout(function() {
+      mapEdit = $(t.firstNode).find('.js-map-edit input').prop('checked');
+      span = $(t.firstNode).find('.js-map-edit span.js-map-edit-span');
+      if (mapEdit) {
+        $(span).show();
+      } else {
+        $(span).hide();
+      }
+    });
+  },
 });
