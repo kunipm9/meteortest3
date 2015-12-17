@@ -65,10 +65,10 @@ meteorblackbelt:autoform-percentage
 mrt:chosen-package
 mizzao:bootboxjs
 vjau:jsdiff2mongo
-standard-minifiers
 dburles:google-maps
 reactive-var
 dburles:collection-helpers
 classcraft:meteor-wkhtmltopdf
 meteorhacks:ssr
 silvervue:wkwebview
+standard-minifiers
