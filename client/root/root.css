@@ -464,3 +464,23 @@ body {
 .sticky-note-pink-theme.each-sticky-note-outer {
 	border: none;
 }
+.sticky-note-yellow-theme.each-sticky-note-outer .each-sticky-note-delete,
+.sticky-note-orange-theme.each-sticky-note-outer .each-sticky-note-delete,
+.sticky-note-green-theme.each-sticky-note-outer .each-sticky-note-delete,
+.sticky-note-blue-theme.each-sticky-note-outer .each-sticky-note-delete,
+.sticky-note-pink-theme.each-sticky-note-outer .each-sticky-note-delete {
+	border: none;
+	font-style: italic;
+}
+.each-sticky-note-delete {
+	border: none;
+}
+.sticky-note-yellow-theme.each-sticky-note-outer .each-sticky-note-options-control,
+.sticky-note-orange-theme.each-sticky-note-outer .each-sticky-note-options-control,
+.sticky-note-green-theme.each-sticky-note-outer .each-sticky-note-options-control,
+.sticky-note-blue-theme.each-sticky-note-outer .each-sticky-note-options-control,
+.sticky-note-pink-theme.each-sticky-note-outer .each-sticky-note-options-control {
+	-moz-background-size:70% 70%;
+	background-size:70% 70%;
+	margin-top: 1px;
+}
