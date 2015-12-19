@@ -157,6 +157,8 @@ setupStickynote = function(area) {
 	});
 }
 
+s_stickynote = null;
+
 /////////////////////
 setupModal = function(templateName) {
 	if (templateName == undefined) return;
@@ -198,6 +200,9 @@ console.log("hide.bs.modal");
 					}
 				}
 			});
+			if (s_stickynote != null) {
+				s_stickynote.destroyAll();
+			}
 		});
 		setTimeout(function() {
 			setupModalContent();

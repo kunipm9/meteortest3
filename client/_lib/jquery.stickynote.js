@@ -170,7 +170,6 @@ jQuery(document).ready(function ($) {
         };
         
         plugin.destroy = function () {
-            
             // Remove children
             $element.find("." + outerCssClass).each(function () {
                 $(this).find("." + headerCssClass).each(function () {
@@ -213,6 +212,46 @@ jQuery(document).ready(function ($) {
 
             $element.unbind();
             $element.removeData();
+        };
+
+        plugin.destroyAll = function () {
+            // Remove children
+            $("." + outerCssClass).each(function () {
+                $(this).find("." + headerCssClass).each(function () {
+                    $(this).find("input").each(function () {
+                        destroy($(this));
+                    });
+                    destroy($(this));
+                });
+                
+                $(this).find("." + deleteCssClass).each(function () {
+                    destroy($(this));
+                });
+                
+                $(this).find("." + optionsCssClass).each(function () {
+                    $(this).find("." + optionsControlCssClass).each(function () {
+                        destroy($(this));
+                    });
+                    
+                    $(this).find("." + themeBoxCssClass).each(function () {
+                        $(this).find("select").each(function () {
+                            destroy($(this));
+                        });
+                        destroy($(this));
+                    });
+                    destroy($(this));
+                });
+                
+                $(this).find("." + noteTextCssClass).each(function () {
+                    $(this).find("textarea").each(function () {
+                        destroy($(this));
+                    });
+                    destroy($(this));
+                });
+                
+                destroy($(this));
+                $(this).removeData();
+            });
         };
         
         plugin.sleepAll = function () {

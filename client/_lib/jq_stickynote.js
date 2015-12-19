@@ -144,6 +144,8 @@ Template.afJqueryStickynote.rendered = function () {
         afJqueryStickynoteNoteList[id] = JSON.parse(this.data.value);
 //console.log(JSON.parse(this.data.value));
     }
+
+    s_stickynote = stickynote;
 }
 };
 
