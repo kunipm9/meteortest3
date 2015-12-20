@@ -1,3 +1,4 @@
+/////////////////////
 AutoForm.addHooks(null, {
 	after: {
 		insert: function(error, result, template) {
@@ -8,27 +9,21 @@ AutoForm.addHooks(null, {
 	},
 });
 
-setupModalContent = function() {
-//console.log("setupModalContent");
-	$('.nav-tabs a:first').tab('show');
-	$('.tab-content').fadeIn(500);
+/////////////////////
+setupModalOnShow_textareaAutosize = function() {
 	$('.textarea_autosize').autosize();
+}
 
+/////////////////////
+setupModalOnShow_listGroup = function() {
 	$('.list-group').sortable({
 		items: 'li.autoform-array-item',
 		axis: 'y',
 		update: function(event, ui) {
 			var lino = 0;
 			var colno = -1;
-//console.log("-------------------");
-//console.log(event);
-//console.log(ui);
 			$('.autoform-array-item', event.target).each(function(index) {
-//console.log("---");
-//console.log(this);
 				$('[data-schema-key *= "."]', this).each(function(index2) {
-//console.log(lino);
-//console.log($(this).attr('data-schema-key').split('.'));
 					var skey = $(this).attr('data-schema-key').split('.');
 					if (colno == -1) {
 						for(var i=0; i<skey.length; i++) {
@@ -49,32 +44,36 @@ setupModalContent = function() {
 		}
 	});
 	$('.list-group').disableSelection();
+}
 
+/////////////////////
+setupModalOnShow_autoformRemoveItem = function() {
 	$('.autoform-remove-item-confirm').off('click');
 	$('.autoform-remove-item-confirm').on('click', function(ev) {
-//console.log(ev);
-//console.log($('.autoform-remove-item', $(ev.target).parent().parent()));
 		var t = $('.autoform-remove-item', $(ev.target).parent().parent());
-            bootbox.dialog({
-              message: "Are you sure you wish to delete this record?",
-              buttons: {
-                eraseRecord: {
-                  label: "Yes!",
-                  className: "btn-danger",
-                  callback: function() {
-		    t.trigger('click');
-                  }
-                },
-                doNotEraseRecord: {
-                  label: "No!",
-                  className: "btn-primary",
-                  callback: function() {
-                  }
-                }
-              }
-            });
+		bootbox.dialog({
+			message: "Are you sure you wish to delete this record?",
+			buttons: {
+				eraseRecord: {
+					label: "Yes!",
+					className: "btn-danger",
+					callback: function() {
+						t.trigger('click');
+					}
+				},
+				doNotEraseRecord: {
+					label: "No!",
+					className: "btn-primary",
+					callback: function() {
+					}
+				}
+			}
+		});
 	});
+}
 
+/////////////////////
+setupModalOnShow_ignoreEnterKey = function() {
 	if (document.querySelector('form') != null) {
 		document.querySelector('form').onkeypress = function(e) {
 			e = e || event;
@@ -82,53 +81,57 @@ setupModalContent = function() {
 			return txtArea || (e.keyCode || e.which || e.charCode || 0) !== 13;
 		};
 	}
+}
 
+/////////////////////
+setupBsTabOnShow = function() {
 	$('a[data-toggle="tab"]').off('shown.bs.tab');
 	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-console.log("shown.bs.tab");
-//console.log(e.target);
-//console.log($(e.target).attr('href'));
 		var activated_tab = e.target // activated tab
 		var previous_tab = e.relatedTarget // previous tab
 		var target_id = $(e.target).attr('href');
 
-		// googlemap
-		setupGooglemap(target_id);
-
-		// sticky note
-		setupStickynote(target_id);
+		setupBsTabOnShow_googlemap(target_id);
+		setupBsTabOnShow_stickynote(target_id);
 	});
-
-	// googlemap
-	setupGooglemap3();
-}
-
-setupModalContent2 = function() {
-	// googlemap
-	setupGooglemap2(null);
 }
 
 /////////////////////
-setupGooglemap = function(area) {
+setupModalOnShow = function() {
+	$('.nav-tabs a:first').tab('show');
+	$('.tab-content').fadeIn(500);
+
+	setupModalOnShow_textareaAutosize();
+	setupModalOnShow_listGroup();
+	setupModalOnShow_autoformRemoveItem();
+	setupModalOnShow_ignoreEnterKey();
+	setupModalOnShow_googlemap3();
+
+	setupBsTabOnShow();
+}
+
+/////////////////////
+setupModalOnShow2 = function() {
+	setupModalOnShow2_googlemap2(null);
+}
+
+/////////////////////
+setupBsTabOnShow_googlemap = function(area) {
 	$('div.js-map', $(area)).each(function(index) {
-//console.log("setupGooglemap js-map 1");
-//console.log($(this));
 		$(this).trigger('click');
 	});
 }
 
-setupGooglemap2 = function(area) {
+/////////////////////
+setupModalOnShow2_googlemap2 = function(area) {
 	$('div.tab-pane.active div.js-map').each(function(index) {
-//console.log("setupGooglemap2 js-map 2");
-//console.log($(this));
 		$(this).trigger('click');
 	});
 }
 
-setupGooglemap3 = function() {
+/////////////////////
+setupModalOnShow_googlemap3 = function() {
 	$('div.js-map').each(function(index, elem) {
-//console.log("setupGooglemap3 js-map 1");
-//console.log($(this));
 		var tab_href = null;
 		$(elem).parents('.nav-tabs a').each(function(index2, elem2) {
 			var tab_href = $(elem2).attr('href');
@@ -139,10 +142,9 @@ setupGooglemap3 = function() {
 	});
 }
 
-setupStickynote = function(area) {
+/////////////////////
+setupBsTabOnShow_stickynote = function(area) {
 	$('div.divStickyNotesContainer').each(function(index, elem) {
-//console.log("divStickyNotesContainer 1");
-//console.log($(this));
 		var tab_href = null;
 		$(elem).parents('.nav-tabs a').each(function(index2, elem2) {
 			var tab_href = $(elem2).attr('href');
@@ -157,7 +159,33 @@ setupStickynote = function(area) {
 	});
 }
 
-s_stickynote = null;
+/////////////////////
+setupModalOnHide_closeErrorMsg = function(area) {
+	$('div.form-group').each(function(index) {
+		var cls = $(this).attr('class').split(' ');
+		for (var i=0, l=cls.length; i<l; ++i) {
+			if (cls[i].indexOf('row-') === 0) {
+				var tcls = '.' + cls[i] + ' .help-block';
+				$(tcls).css('height', '0px');
+			}
+		}
+	});
+}
+
+/////////////////////
+setupModalOnHide_stickynote = function() {
+	$('.jq_stickynote_destroy').each(function(index, elem) {
+//console.log("setupModalOnHide_stickynote");
+//console.log(elem);
+		$(elem).trigger('blur');
+	});
+}
+
+/////////////////////
+setupModalOnHide = function() {
+	setupModalOnHide_closeErrorMsg();
+	setupModalOnHide_stickynote();
+}
 
 /////////////////////
 setupModal = function(templateName) {
@@ -167,56 +195,44 @@ setupModal = function(templateName) {
 		return;
 	}
 
-console.log("Template renderd:" + templateName);
-
+	/////////////////////
 	Template[templateName].rendered = function() {
-
-console.log("Template renderd");
 		AutoForm.resetForm(templateName);
+
+		/////////////////////
 		$('#jkafModal').off('show.bs.modal');
 		$('#jkafModal').on('show.bs.modal', function(a1, a2) {
-console.log("show.bs.modal");
 			var form_id = $("div", a1.currentTarget).attr("id") || " ";
 			form_id = form_id.substr(1);
 			AutoForm.resetForm(form_id);
 			setTimeout(function() {
-				setupModalContent();
-			}, 300);
+				setupModalOnShow();
+			}, 500);
 			setTimeout(function() {
-				setupModalContent2();
-			}, 1000);
+				setupModalOnShow2();
+			}, 1500);
 		});
+
+		/////////////////////
 		$('#jkafModal').off('hide.bs.modal');
 		$('#jkafModal').on('hide.bs.modal', function(a1, a2) {
-console.log("hide.bs.modal");
-			$('div.form-group').each(function(index) {
-				var cls = $(this).attr('class').split(' ');
-				for (var i=0, l=cls.length; i<l; ++i) {
-					if (cls[i].indexOf('row-') === 0) {
-//console.log("row");
-//console.log(cls[i]);
-						var tcls = '.' + cls[i] + ' .help-block';
-						$(tcls).css('height', '0px');
-					}
-				}
-			});
-			if (s_stickynote != null) {
-				s_stickynote.destroyAll();
-			}
+			setupModalOnHide();
 		});
+
+		/////////////////////
 		setTimeout(function() {
-			setupModalContent();
+			setupModalOnShow();
 		}, 300);
 	}
 
+	/////////////////////
 	Template[templateName].destroyed = function() {
 		console.log("Template destroyed:" + templateName);
 	}
 
+	/////////////////////
 	AutoForm.addHooks(templateName, {
 		onError: function(operation, error, template) {
-console.log("onError");
-console.log(error);
 			setTimeout(function() {
 				$('div.has-error').each(function(index) {
 					var cls = $(this).attr('class').split(' ');
@@ -242,3 +258,4 @@ console.log(error);
 		}
 	});
 }
+

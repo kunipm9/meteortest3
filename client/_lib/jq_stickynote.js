@@ -12,17 +12,17 @@ afJqueryStickynoteNoteList_remove = function(id, note) {
 };
 
 AutoForm.addInputType("jquery-stickynote", {
-  template: "afJqueryStickynote",
-  valueOut: function () {
+    template: "afJqueryStickynote",
+    valueOut: function () {
 //console.log("valueOut jquery-stickynote");
 //console.log("this");
 //console.log(this);
-    var id = this.context.id;
+        var id = this.context.id;
 //console.log(afJqueryStickynoteNoteList);
-    return JSON.stringify(afJqueryStickynoteNoteList[id]);
-  },
-  valueConverters: {
-  }
+        return JSON.stringify(afJqueryStickynoteNoteList[id]);
+    },
+    valueConverters: {
+    }
 });
 
 Template.afJqueryStickynote.helpers({
@@ -158,3 +158,15 @@ Template.afJqueryStickynote.destroyed = function () {
     this.data.stickynote = null;
     afJqueryStickynoteNoteList = [];
 };
+
+Template.afJqueryStickynote.events({
+    'blur .jq_stickynote_destroy': function(event) {
+//console.log("click .jq_stickynote_destroy start");
+//console.log(this);
+        if (this.stickynote != null) {
+            this.stickynote.destroyAll();
+        }
+        afJqueryStickynoteNoteList = [];
+//console.log("click .jq_stickynote_destroy end");
+    }
+});

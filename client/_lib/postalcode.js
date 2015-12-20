@@ -43,7 +43,7 @@ Template.afPostalcode.rendered = function () {
 };
 
 Template.afPostalcode.events({
-	'click #postalcv': function(event) {
+	'click .postalcv': function(event) {
 console.log("Template.afPostalcode.events");
 console.log(this);
 		var namelist = this.name.split(".");
