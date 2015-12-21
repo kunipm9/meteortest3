@@ -59,11 +59,22 @@ console.log(this);
 //console.log("opt");
 //console.log(opt);
 		ZipSearchValue = function(data){
+//console.log(data.stateName);
 //console.log('input[name="' + parent + opt.state + '"]');
 			$('input[name="' + parent + opt.state + '"]').val(data.state);
-			$('input[name="' + parent + opt.stateName + '"]').val(data.stateNmae);
+			$('input[name="' + parent + opt.stateName + '"]').val(data.stateName);
+//console.log('select[name="' + parent + opt.stateName + '"] option');
+			$('select[name="' + parent + opt.stateName + '"] option').filter(function(index){
+//console.log($(this).text());
+//	if ( $(this).text() === data.stateName) {
+//console.log("hit $(this).text()");
+//}
+				return $(this).text() === data.stateName;
+			}).prop('selected', true);
+
 			$('input[name="' + parent + opt.city + '"]').val(data.city);
 			$('input[name="' + parent + opt.street + '"]').val(data.street);
+			$('input[name="' + parent + opt.citystreet + '"]').val(data.city + data.street);
 		};
 		var zip = $('input[name="' + this.name + '"]').val();
 		var zip1;
