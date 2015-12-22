@@ -29,16 +29,24 @@
 }
 
 /*****************************************/
-/***
-.nav-tabs {
-	display: table;
-	width: 100%;
-	background: #333333 url("images/ui-bg_diagonals-thick_8_333333_40x40.png") 50% 50% repeat;
+.nav-tabs-wrapper {
+	background: #f9f9f9 url("client/_lib/images/ui-bg_highlight-hard_100_f9f9f9_1x100.png") 50% top repeat-x;
+	border: 1px solid #cccccc;
+	color: #222222;
 	border-radius: 4px;
+	display: table;
+	margin: 0;
+	padding: .2em .2em 0;
+}
+
+.nav-tabs {
+	width: 100%;
+	background: #333333 url("client/_lib/images/ui-bg_diagonals-thick_8_333333_40x40.png") 50% 50% repeat;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
 	border: 1px solid #a3a3a3;
 	padding: .2em .2em 0;
 }
-***/
 
 .nav-tabs > li > a {
 	font-size: 1.2em;
@@ -82,11 +90,13 @@
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffffff', EndColorStr='#ffffff');
 }
 
+/*
 .tab-content {
 	padding: 6px;
 	background-color: #fcfcfc;
 	box-shadow: 0px 0px 5px #777777;
 }
+*/
 
 /*****************************************/
 
