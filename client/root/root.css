@@ -62,10 +62,10 @@
 	box-shadow: 1px 1px 3px #999999;
 	background-color: #ffffff 100%;
 	background-image: -webkit-linear-gradient(top, #555555 0%, #333333 65%, #555555 100%);
-	background-image: -moz-linear-gradient(top, #555555 0%, #333333 65%, #f4f4f4 100%);
-	background-image: -ms-linear-gradient(top, #555555 0%, #333333 65%, #f4f4f4 100%);
-	background-image: -o-linear-gradient(top, #555555 0%, #333333 65%, #f4f4f4 100%);
-	background-image: linear-gradient(top, #555555 0%, #333333 65%, #f4f4f4 100%);
+	background-image: -moz-linear-gradient(top, #555555 0%, #333333 65%, #555555 100%);
+	background-image: -ms-linear-gradient(top, #555555 0%, #333333 65%, #555555 100%);
+	background-image: -o-linear-gradient(top, #555555 0%, #333333 65%, #555555 100%);
+	background-image: linear-gradient(top, #555555 0%, #333333 65%, #555555 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#555555', EndColorStr='#333333');
 }
 
