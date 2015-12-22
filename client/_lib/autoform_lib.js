@@ -91,8 +91,10 @@ setupBsTabOnShow = function() {
 		var previous_tab = e.relatedTarget // previous tab
 		var target_id = $(e.target).attr('href');
 
-		setupBsTabOnShow_googlemap(target_id);
-		setupBsTabOnShow_stickynote(target_id);
+		setTimeout(function() {
+			setupBsTabOnShow_googlemap(target_id);
+			setupBsTabOnShow_stickynote(target_id);
+		}, 100);
 	});
 }
 
@@ -101,11 +103,13 @@ setupModalOnShow = function() {
 	$('.nav-tabs a:first').tab('show');
 	$('.tab-content').fadeIn(500);
 
-	setupModalOnShow_textareaAutosize();
-	setupModalOnShow_listGroup();
-	setupModalOnShow_autoformRemoveItem();
-	setupModalOnShow_ignoreEnterKey();
-	setupModalOnShow_googlemap3();
+	setTimeout(function() {
+		setupModalOnShow_textareaAutosize();
+		setupModalOnShow_listGroup();
+		setupModalOnShow_autoformRemoveItem();
+		setupModalOnShow_ignoreEnterKey();
+		setupModalOnShow_googlemap3();
+	}, 100);
 
 	setupBsTabOnShow();
 }
