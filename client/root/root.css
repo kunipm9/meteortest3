@@ -29,6 +29,17 @@
 }
 
 /*****************************************/
+/***
+.nav-tabs {
+	display: table;
+	width: 100%;
+	background: #333333 url("images/ui-bg_diagonals-thick_8_333333_40x40.png") 50% 50% repeat;
+	border-radius: 4px;
+	border: 1px solid #a3a3a3;
+	padding: .2em .2em 0;
+}
+***/
+
 .nav-tabs > li > a {
 	font-size: 1.2em;
 	-webkit-border-radius: 8px 8px 0 0;
