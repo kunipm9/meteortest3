@@ -205,9 +205,9 @@ setupModal = function(templateName) {
 			var form_id = $("div", a1.currentTarget).attr("id") || " ";
 			form_id = form_id.substr(1);
 			AutoForm.resetForm(form_id);
-			setTimeout(function() {
+//			setTimeout(function() {
 				setupModalOnShow();
-			}, 500);
+//			}, 500);
 			setTimeout(function() {
 				setupModalOnShow2();
 			}, 1500);
