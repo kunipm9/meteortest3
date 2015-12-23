@@ -494,7 +494,7 @@ jQuery(document).ready(function ($) {
                 };
                 note.id = note.index;
                 note.settings.notePosition.top = 50 + Math.random() * 400;
-                note.settings.notePosition.left = 50 + Math.random() * 600;
+                note.settings.notePosition.left = 50 + Math.random() * 400;
             } else {
                 note.settings = $.extend(true, {}, plugin.settings);
                 note.settings = $.extend(true, note.settings, existingNote.settings);
