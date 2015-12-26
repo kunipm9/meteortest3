@@ -120,6 +120,11 @@ setupBsTabOnShow_googlemap = function(area) {
 	$('div.js-map', $(area)).each(function(index) {
 		$(this).trigger('click');
 	});
+	setTimeout(function() {
+		$('div.js-map', $(area)).each(function(index) {
+			$(this).trigger('click');
+		});
+	}, 5000);
 }
 
 /////////////////////
