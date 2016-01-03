@@ -26,7 +26,6 @@ mrt:moment
 gwendall:autoform-i18n
 gwendall:simple-schema-i18n
 sacha:spin
-dovrosenberg:astronomy-displayformat
 percolate:migrations
 sewdn:masked-input
 matb33:collection-hooks
