@@ -91,7 +91,10 @@
 }
 
 .tab-content {
-	padding: 1.2em 2.1em;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 16px;
+	padding-right: 16px;
 }
 
 /*****************************************/
@@ -131,6 +134,7 @@
 .modal-body {
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-top: 4px;
 }
 
 /*****************************************/
