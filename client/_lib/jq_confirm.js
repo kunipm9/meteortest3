@@ -61,7 +61,7 @@ Template.afConfirm.rendered = function () {
 //console.log("user_old");
 //console.log(user_old);
     var name = user_old.profile.firstName + user_old.profile.lastName
-    var str = s.sprintf("%s %s", old_date, name);
+    var str = sprintf("%s %s", old_date, name);
     $('input#' + id).val(str);
   } else {
     old_user_id = "";
@@ -72,8 +72,8 @@ Template.afConfirm.rendered = function () {
       var user = Meteor.user();
       var name = user.profile.firstName + user.profile.lastName;
       var now = new Date();
-      var str = s.sprintf("%04d-%02d-%02d %s", now.getFullYear(), month = now.getMonth()+1, now.getDate(), name);
-      var str2 = s.sprintf("%04d-%02d-%02d#%s", now.getFullYear(), month = now.getMonth()+1, now.getDate(), user._id);
+      var str = sprintf("%04d-%02d-%02d %s", now.getFullYear(), month = now.getMonth()+1, now.getDate(), name);
+      var str2 = sprintf("%04d-%02d-%02d#%s", now.getFullYear(), month = now.getMonth()+1, now.getDate(), user._id);
 
       $('input#' + id).val(str);
       $('input#' + id + "_").val(str2);

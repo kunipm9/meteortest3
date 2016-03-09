@@ -2,7 +2,7 @@ _libSetDefault = function() {
 	dObj = new Date();
 	var y = dObj.getFullYear();
 	var m = dObj.getMonth() + 1;
-	var cur = s.sprintf("%d%02d", y, m);
+	var cur = sprintf("%d%02d", y, m);
 	Session.setDefault('procMonth', cur);
 
 	var monthOptions = generateSelectOptionsMonthList();
