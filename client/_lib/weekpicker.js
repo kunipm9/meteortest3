@@ -286,7 +286,7 @@ console.log(e.target);
         },
 
         formatWeek:function (from, to) {
-            return this.format(from) + '-' + this.format(to);
+            return this.format(from) + '～' + this.format(to);
         },
 
         nav:function (months) {

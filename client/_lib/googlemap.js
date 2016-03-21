@@ -146,7 +146,7 @@ initTemplateAndGoogleMaps = function() {
   if (typeof this.data.atts.rendered === 'function') {
     this.data.atts.rendered(this.map);
   }
-  google.maps.event.addListener(this.map, 'click', (function(_this) {
+  google.maps.event.addListener(this.map, 'rightclick', (function(_this) {
     return function(e) {
       mapEdit = $(_this.firstNode).find('.js-map-edit input').prop('checked');
       if (mapEdit) {
