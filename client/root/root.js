@@ -14,3 +14,9 @@ console.log(Session.get('procMonthString'));
 		return Session.get('procMonthString');
 	},
 });
+
+console.log("root google -----------------------------------------------");
+GoogleMaps.load({
+	libraries: 'places'
+});
+
