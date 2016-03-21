@@ -1,3 +1,7 @@
+GoogleMaps.load({
+	libraries: 'places'
+});
+
 /////////////////////
 AutoForm.addHooks(null, {
 	after: {
