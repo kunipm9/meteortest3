@@ -217,9 +217,9 @@ Template.afMap.events({
       mapEdit = $(t.firstNode).find('.js-map-edit input');
       $(mapEdit).bootstrapToggle({
         height: 24,
-        width: 90,
-        on: '編集ON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-        off: '編集OFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+        width: 63,
+        on: 'ON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+        off: 'OFF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
       });
 
 //console.log("google.maps resize");
