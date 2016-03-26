@@ -134,7 +134,7 @@ jQuery(document).ready(function ($) {
 //console.log("sticky init");
 //console.log("$element");
 //console.log($element);
-            $element.click(function (e) {
+            $("a", $element).click(function (e) {
                 e.preventDefault();
 //console.log("sticky click");
                 if (allSleeping()) {
