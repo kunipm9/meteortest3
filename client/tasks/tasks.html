@@ -59,7 +59,7 @@
 
 
 <template name="operation_task">
-	{{#jkafModal id="update_task" title="Update" class="normal" template="update_task" collection="Task" doc=this._id}} 修正 {{/jkafModal}}
+	{{#jkafModal id="update_task" title=(jkafModalTitle "Update: " this.title) class="normal" template="update_task" collection="Task" doc=this._id}} 修正 {{/jkafModal}}
 	 / 
 	{{#afModal class="normal" collection="Task" fields="title" id="remove_task" operation="remove" doc=this._id buttonContent="Remove Task" title="Remove Task" buttonClasses="btn-primary"}} 削除 {{/afModal}}
 </template>

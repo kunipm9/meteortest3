@@ -158,7 +158,7 @@ setupBsTabOnShow_spreadsheet = function() {
 		$('iframe.spreadsheet').each(function(index) {
 			$(this).attr('src', $(this).attr('org_src'));
 		});
-	}, 100);
+	}, 300);
 }
 
 /////////////////////

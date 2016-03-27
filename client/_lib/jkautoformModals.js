@@ -11,6 +11,13 @@ Template.jkafModal.helpers({
 	}
 });
 
+UI.registerHelper('jkafModalTitle', function(arg1, arg2, arg3) {
+	if (typeof arg1 == 'object') arg1 = '';
+	if (typeof arg2 == 'object') arg2 = '';
+	if (typeof arg3 == 'object') arg3 = '';
+	return arg1 + arg2 + arg3;
+});
+
 var jkafCollectionHookdId = [];
 Template.jkafModal.events({
 	'click': function(e, t) {
