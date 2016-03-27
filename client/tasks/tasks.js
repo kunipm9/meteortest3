@@ -34,6 +34,6 @@ Template['insert_update_task_content'].rendered = function() {
 		setTimeout(resuzeFunc, 100);
 	});
 	$(window).resize(function() {
-		setTimeout(resuzeFunc, 100);
+		setTimeout(resuzeFunc, 10);
 	});
 }

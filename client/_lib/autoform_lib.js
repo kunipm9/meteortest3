@@ -110,6 +110,7 @@ setupModalOnShow = function() {
 	setupModalOnShow_autoformRemoveItem();
 	setupModalOnShow_ignoreEnterKey();
 	setupModalOnShow_googlemap3();
+	setupBsTabOnShow_spreadsheet();
 
 	setupBsTabOnShow();
 }
@@ -149,6 +150,15 @@ setupModalOnShow_googlemap3 = function() {
 			$(this).trigger('click');
 		}
 	});
+}
+
+/////////////////////
+setupBsTabOnShow_spreadsheet = function() {
+	setTimeout(function() {
+		$('iframe.spreadsheet').each(function(index) {
+			$(this).attr('src', $(this).attr('org_src'));
+		});
+	}, 100);
 }
 
 /////////////////////
