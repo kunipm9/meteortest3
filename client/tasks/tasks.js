@@ -30,9 +30,12 @@ Template['insert_update_task_content'].rendered = function() {
 		var sz = window.innerHeight - 350;
 		$(".tab-content").height(sz);
 	};
+	setTimeout(resuzeFunc, 100);
+/*
 	$('#jkafModal').on('show.bs.modal', function(a1, a2) {
 		setTimeout(resuzeFunc, 100);
 	});
+*/
 	$(window).resize(function() {
 		setTimeout(resuzeFunc, 10);
 	});
