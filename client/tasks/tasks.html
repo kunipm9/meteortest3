@@ -42,6 +42,7 @@
 		</div>
 		<div class="tab-pane fade in active" id="tab2">
 			{{> afQuickField name='person'}}
+			{{> afQuickField name='location'}}
 		</div>
 		<div class="tab-pane fade in active" id="tab3">
 			{{> afQuickField name='deadline'}}
@@ -49,16 +50,15 @@
 			{{> afQuickField name='entday'}}
 			{{> afQuickField name='repetitions'}}
 			{{> afQuickField name='priority'}}
-			{{> afQuickField name='location'}}
 		</div>
 	</div>
 </div>
 </template>
 
 <template name="update_spreadsheet">
-	{{#update_form id="update_spreadsheet" collection="Task" doc=this}}
+	{{#view_form id="update_spreadsheet" collection="Task" doc=this}}
 	{{> insert_update_spreadsheet_content}}
-	{{/update_form}}
+	{{/view_form}}
 </template>
 
 
