@@ -40,3 +40,19 @@ Template['insert_update_task_content'].rendered = function() {
 		setTimeout(resuzeFunc, 10);
 	});
 }
+
+Template['insert_update_spreadsheet_content'].rendered = function() {
+	var resuzeFunc = function() {
+		var sz = window.innerHeight - 250;
+		$(".tab-content").height(sz);
+	};
+	setTimeout(resuzeFunc, 100);
+/*
+	$('#jkafModal').on('show.bs.modal', function(a1, a2) {
+		setTimeout(resuzeFunc, 100);
+	});
+*/
+	$(window).resize(function() {
+		setTimeout(resuzeFunc, 10);
+	});
+}
