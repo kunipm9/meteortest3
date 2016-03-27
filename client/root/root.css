@@ -95,6 +95,11 @@
 	padding-bottom: 4px;
 	padding-left: 16px;
 	padding-right: 16px;
+
+	overflow-y: auto;
+/*
+	max-height: 500px;
+*/
 }
 
 /*****************************************/
