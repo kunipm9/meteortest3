@@ -24,3 +24,16 @@ console.log(doc.procMonth);
 	}
 };
 AutoForm.addHooks('insert_task', hooksObject, true);
+
+Template['insert_update_task_content'].rendered = function() {
+	var resuzeFunc = function() {
+		var sz = window.innerHeight - 350;
+		$(".tab-content").height(sz);
+	};
+	$('#jkafModal').on('show.bs.modal', function(a1, a2) {
+		setTimeout(resuzeFunc, 100);
+	});
+	$(window).resize(function() {
+		setTimeout(resuzeFunc, 100);
+	});
+}
