@@ -56,15 +56,14 @@
 </template>
 
 <template name="update_spreadsheet">
-	{{#view_form id="update_spreadsheet" collection="Task" doc=this}}
+	{{#readonly_form id="update_spreadsheet" collection="Task" doc=this}}
 	{{> insert_update_spreadsheet_content}}
-	{{/view_form}}
+	{{/readonly_form}}
 </template>
 
 
 <template name="insert_update_spreadsheet_content">
-	{{> afQuickField name='stickynoteBody'}}
-	<iframe class="spreadsheet tab-content" org_src="http://192.168.1.33:8080/zssapp/#2016-02-13_motor_func_careplan-2016-02.xlsx" width="100%" height="100%">
+	<iframe class="spreadsheet iframe-content" org_src="http://192.168.1.33:8080/zssapp/#2016-02-13_motor_func_careplan-2016-02.xlsx" width="100%" height="100%">
 	</iframe>
 </template>
 

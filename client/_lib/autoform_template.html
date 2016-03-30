@@ -134,7 +134,9 @@
 	{{> UI.contentBlock}}
 	<div class="modal-footer">
 		<button type="submit" class="btn btn-primary">確定</button>
+<!--
 		<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">キャンセル</span></button>
+-->
 	</div>
 	{{/autoForm}}
 </template>
@@ -145,7 +147,9 @@
 	{{> UI.contentBlock}}
 	<div class="modal-footer">
 		<button type="submit" class="btn btn-primary">確定</button>
+<!--
 		<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">キャンセル</span></button>
+-->
 	</div>
 	{{/autoForm}}
 </template>
@@ -156,15 +160,10 @@
 	{{> UI.contentBlock}}
 	<div class="modal-footer">
 		<button type="submit" class="btn btn-primary">確定</button>
+<!--
 		<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">キャンセル</span></button>
+-->
 	</div>
-	{{/autoForm}}
-</template>
-
-
-<template name="view_form">
-	{{#autoForm id=id collection=collection doc=doc type="update" template="bootstrap3-horizontal"}}
-	{{> UI.contentBlock}}
 	{{/autoForm}}
 </template>
 
@@ -174,7 +173,9 @@
 	{{> UI.contentBlock}}
 	<div class="modal-footer">
 		<button type="submit" class="btn btn-primary">確定</button>
+<!--
 		<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">キャンセル</span></button>
+-->
 	</div>
 	{{/autoForm}}
 </template>
@@ -183,8 +184,10 @@
 <template name="readonly_form">
 	{{#autoForm id=id collection=collection doc=doc type="disabled" template="bootstrap3-horizontal"}}
 	{{> UI.contentBlock}}
+<!--
 	<div class="modal-footer">
 		<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">閉じる</span></button>
 	</div>
+-->
 	{{/autoForm}}
 </template>

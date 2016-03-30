@@ -29,6 +29,7 @@ Template['insert_update_task_content'].rendered = function() {
 	var resuzeFunc = function() {
 		var sz = window.innerHeight - 300;
 		$(".tab-content").height(sz);
+		$(".iframe-content").height(sz);
 	};
 	setTimeout(resuzeFunc, 100);
 /*
@@ -43,8 +44,9 @@ Template['insert_update_task_content'].rendered = function() {
 
 Template['insert_update_spreadsheet_content'].rendered = function() {
 	var resuzeFunc = function() {
-		var sz = window.innerHeight - 130;
+		var sz = window.innerHeight - 100;
 		$(".tab-content").height(sz);
+		$(".iframe-content").height(sz);
 	};
 	setTimeout(resuzeFunc, 100);
 /*
