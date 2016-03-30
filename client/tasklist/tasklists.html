@@ -1,7 +1,9 @@
 <template name="tasklist">
-	{{#jkafModal id="insert_tasklist" title="Insert" class="menu_button" template="insert_tasklist" collection="TaskList"}} insert {{/jkafModal}}
 	<div id="viewer">
 		{{> view_list table=TabularTables.TaskList}}
+		<div class="dataTables_insert">
+			{{#jkafModal id="insert_tasklist" title="Insert" class="menu_button" template="insert_tasklist" collection="TaskList"}} 新規追加 {{/jkafModal}}
+		</div>
 	</div>
 </template>
 

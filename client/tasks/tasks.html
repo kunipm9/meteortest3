@@ -1,7 +1,9 @@
 <template name="tasks">
-	{{#jkafModal id="insert_task" title="Insert" class="menu_button" template="insert_task" collection="Task"}} insert {{/jkafModal}}
 	<div id="viewer">
 		{{> view_list table=TabularTables.Tasks}}
+		<div class="dataTables_insert">
+			{{#jkafModal id="insert_task" title="Insert" class="menu_button" template="insert_task" collection="Task"}} 新規追加 {{/jkafModal}}
+		</div>
 	</div>
 	<div class="modal_image_div">{{> modal_image}}</div>
 </template>
@@ -72,6 +74,7 @@
 	{{#jkafModal id="update_task" title=(jkafModalTitle "Update: " this.title) class="normal" template="update_task" collection="Task" doc=this._id}} 修正 {{/jkafModal}}
 	 / 
 	{{#jkafModal id="update_spreadsheet" title=(jkafModalTitle "Update: " this.title) class="normal" template="update_spreadsheet" collection="Task" doc=this._id}} Excel {{/jkafModal}}
+	<a href="http://192.168.1.33:8080/zssapp/#2016-02-13_motor_func_careplan-2016-02.xlsx" width="100%" height="100%" target="motor_func{{this._id}}">Excel</a>
 	 / 
 	{{#afModal class="normal" collection="Task" fields="title" id="remove_task" operation="remove" doc=this._id buttonContent="Remove Task" title="Remove Task" buttonClasses="btn-primary"}} 削除 {{/afModal}}
 </template>

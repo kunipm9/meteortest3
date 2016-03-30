@@ -4,10 +4,11 @@
 
 
 <template name="users">
-	{{#jkafModal id="insert_user" title="Insert" class="menu_button" template="insert_user" collection="Meteor.users"}} insert {{/jkafModal}}
-
 	<div id="viewer">
 		{{> view_list table=TabularTables.UserList}}
+		<div class="dataTables_insert">
+			{{#jkafModal id="insert_user" title="Insert" class="menu_button" template="insert_user" collection="Meteor.users"}} 新規追加 {{/jkafModal}}
+		</div>
 	</div>
 </template>
 
