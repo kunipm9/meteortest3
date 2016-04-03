@@ -21,7 +21,26 @@ console.log("insert_task formToDoc");
 		doc.procMonth = Session.get('procMonth');
 console.log(doc.procMonth);
 		return doc;
-	}
+	},
+	onSuccess: function(formType, result) {
+		if (formType == 'insert') {
+			var _id = result;
+			var command = '';
+			command += "copyBook:2016-02-13_motor_func_careplan-2016-02.xlsx:new_" + _id + "\n";
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				url: 'http://192.168.1.33:80/PHPExcel/util.php',
+				data: {
+					command: command,
+				},
+				success:function(data) {
+				},
+				error:function(XMLHttpRequest, textStatus, errorThrown) {
+				}
+			});
+		}
+	},
 };
 AutoForm.addHooks('insert_task', hooksObject, true);
 
@@ -60,8 +79,7 @@ Template['insert_update_spreadsheet_content'].rendered = function() {
 }
 
 Template.insert_update_spreadsheet_content.events({
-	'click #archive': function(){
-		console.log("You clicked something");
+	'click #spreadsheet_archive': function(){
 		$('iframe.spreadsheet').attr('src', null);
 		$org_src = $('iframe.spreadsheet').attr('org_src');
 
@@ -84,6 +102,14 @@ Template.insert_update_spreadsheet_content.events({
 console.log("error----------");
 			}
 		});
-	}
+	},
+
+	'click #spreadsheet_reset': function(){
+		$('iframe.spreadsheet').attr('src', null);
+		$org_src = $('iframe.spreadsheet').attr('org_src');
+		setTimeout(function() {
+			$('iframe.spreadsheet').attr('src', $org_src);
+		});
+	},
 
 });
