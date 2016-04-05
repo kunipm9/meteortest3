@@ -1,3 +1,8 @@
+Template.registerHelper("hostname", function () {
+	return headers.get()['host'].replace(':3000', '');
+});
+
+/////////////////////
 GoogleMaps.load({
 	libraries: 'places'
 });
@@ -277,4 +282,3 @@ setupModal = function(templateName) {
 		}
 	});
 }
-
