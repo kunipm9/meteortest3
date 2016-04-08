@@ -23,7 +23,7 @@ console.log(doc.procMonth);
 		return doc;
 	},
 	onSuccess: function(formType, result) {
-		hostname = headers.get()['host'].replace(':3000', '');
+		var hostname = headers.get()['host'].replace(':3000', '');
 		if (formType == 'insert') {
 			var _id = result;
 			var command = '';
@@ -31,8 +31,6 @@ console.log(doc.procMonth);
 			$.ajax({
 				type: 'POST',
 				dataType: 'json',
-				//url: 'http://192.168.1.33:80/PHPExcel/util.php',
-				//url: 'http://210.227.118.3:80/PHPExcel/util.php',
 				url: 'http://' + hostname + ':80/PHPExcel/util.php',
 				data: {
 					command: command,
@@ -86,7 +84,7 @@ Template.insert_update_spreadsheet_content.events({
 		$('iframe.spreadsheet').attr('src', null);
 		$org_src = $('iframe.spreadsheet').attr('org_src');
 
-		hostname = headers.get()['host'].replace(':3000', '');
+		var hostname = headers.get()['host'].replace(':3000', '');
 		var command = '';
 		command += "load:2016-02-13_motor_func_careplan-2016-02.xlsx\n";
 		command += "setActiveSheet:0\n";
@@ -95,7 +93,6 @@ Template.insert_update_spreadsheet_content.events({
 		$.ajax({
 			type: 'POST',
 			dataType: 'json',
-			//url: 'http://210.227.118.3:80/PHPExcel/util.php',
 			url: 'http://' + hostname + ':80/PHPExcel/util.php',
 			data: {
 				command: command,
